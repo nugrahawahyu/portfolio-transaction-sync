@@ -15,16 +15,17 @@ ENV CHROMIUM_PATH google-chrome-stable
 WORKDIR /app
 RUN mkdir /app/node_modules
 
-RUN chown -Rh $user:$user /app
+COPY . /app
 
 # configure puppeteer user
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
   && mkdir -p /home/pptruser/Downloads \
   && chown -R pptruser:pptruser /home/pptruser \
-  && chown -R pptruser:pptruser /app/node_modules
-USER pptruser
+  && chown -R pptruser:pptruser /app/node_modules \
+  && chown -R pptruser:pptruser /app/last-tx-id.json \
+  && chown -R pptruser:pptruser /app/logged-tx-ids.json
 
-COPY . /app
+USER pptruser
 
 RUN yarn
 

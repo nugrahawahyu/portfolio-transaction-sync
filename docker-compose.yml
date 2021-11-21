@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  test:
+    build:
+      context: .
+    restart: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+    volumes: 
+      - ./:/app
+      - node_modules:/app/node_modules
+
+volumes:
+  node_modules:

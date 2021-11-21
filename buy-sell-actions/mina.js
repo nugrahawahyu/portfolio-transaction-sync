@@ -24,7 +24,8 @@ module.exports = {
         Number(trade.cost) + Number(trade.fee),
         config.usdToIDR,
         0,
-        trade.time * 1000
+        trade.time * 1000,
+        txId
       )
   
       // buy mina
@@ -33,7 +34,8 @@ module.exports = {
         trade.vol,
         trade.price * config.usdToIDR,
         trade.fee * config.usdToIDR,
-        trade.time * 1000
+        trade.time * 1000,
+        txId
       )
   
       loggedTxIds.MINA[txId] = 1
@@ -63,7 +65,8 @@ module.exports = {
         trade.vol,
         trade.price * config.usdToIDR,
         trade.fee * config.usdToIDR,
-        trade.time * 1000
+        trade.time * 1000,
+        txId
       )
 
       // buy usd
@@ -72,7 +75,8 @@ module.exports = {
         Number(trade.cost) - Number(trade.fee),
         config.usdToIDR,
         0,
-        trade.time * 1000
+        trade.time * 1000,
+        txId
       )
 
       loggedTxIds.MINA[txId] = 1

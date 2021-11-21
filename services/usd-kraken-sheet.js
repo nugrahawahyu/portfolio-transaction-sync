@@ -7,7 +7,7 @@ module.exports = class MinaSheet {
     this.doc = null
   }
 
-  async insertBuyHistory (amount, price, fee, time) {
+  async insertBuyHistory (amount, price, fee, time, txId) {
     if (!this.doc) {
       this.doc = await this.initGdoc
     }
@@ -23,6 +23,7 @@ module.exports = class MinaSheet {
     const newBuyEntryPriceCell = sheet.getCellByA1(`I${buyEntryNextRow}`)
     const newBuyEntryFeeCell = sheet.getCellByA1(`J${buyEntryNextRow}`)
 
+    newBuyEntryDateCell.note = txId
     newBuyEntryDateCell.value = new Date(time).toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })
     newBuyEntryAmountCell.value = amount
     newBuyEntryPriceCell.value = price
@@ -36,7 +37,7 @@ module.exports = class MinaSheet {
     ])
   }
 
-  async insertSellHistory (amount, price, fee, time) {
+  async insertSellHistory (amount, price, fee, time, txId) {
     if (!this.doc) {
       this.doc = await this.initGdoc
     }
@@ -52,6 +53,7 @@ module.exports = class MinaSheet {
     const newSellEntryPriceCell = sheet.getCellByA1(`C${sellEntryNextRow}`)
     const newSellEntryFeeCell = sheet.getCellByA1(`D${sellEntryNextRow}`)
 
+    newSellEntryDateCell.note = txId
     newSellEntryDateCell.value = new Date(time).toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })
     newSellEntryAmountCell.value = amount
     newSellEntryPriceCell.value = price

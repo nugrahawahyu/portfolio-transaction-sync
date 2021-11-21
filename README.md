@@ -14,6 +14,12 @@
   cp logged-tx-ids.json.sample logged-tx-ids.json
   ```
 
+- Copy .env from sample
+
+  ```
+  cp .env.sample .env
+  ```
+
 - Install dependencies
   ```
   yarn

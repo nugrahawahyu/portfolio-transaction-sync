@@ -1,0 +1,4 @@
+node_modules
+last-tx-id.json
+logged-tx-ids.json
+.env

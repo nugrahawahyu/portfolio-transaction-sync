@@ -1,0 +1,12 @@
+{
+  "MINA": {
+    "buyLastRowCell": "",
+    "buyDateColumn": "",
+    "buyAmountColumn": "",
+    "buyFeeColumn": "",
+    "sellLastRowCell": "",
+    "sellDateColumn": "",
+    "sellAmountColumn": "",
+    "sellFeeColumn": ""
+  }
+}

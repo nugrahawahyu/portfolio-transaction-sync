@@ -32,7 +32,7 @@ module.exports = {
       await minaSheet.insertBuyHistory(
         trade.vol,
         trade.price * config.usdToIDR,
-        trade.fee,
+        trade.fee * config.usdToIDR,
         trade.time * 1000
       )
   
@@ -62,7 +62,7 @@ module.exports = {
       await minaSheet.insertSellHistory(
         trade.vol,
         trade.price * config.usdToIDR,
-        trade.fee,
+        trade.fee * config.usdToIDR,
         trade.time * 1000
       )
 

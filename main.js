@@ -2,7 +2,6 @@ require('dotenv').config()
 const fs = require('fs')
 const buySellActions = require('./buy-sell-actions')
 const Trade = require('./models/trade')
-const lastTxId = require('./last-tx-id.json')['tx-id']
 const pairSheetMap = require('./pair-sheet-map.json')
 const Kraken = require('./services/kraken')
 const GoogleSearch = require('./services/google-search')
@@ -38,6 +37,7 @@ function updateLastTxId (txId) {
 }
 
 async function main () {
+  const lastTxId = require('./last-tx-id.json')['tx-id']
   const usdToIDR = await googleSearch.getPriceFromGoogle('usd+to+idr', 'span[data-precision="2"]')
   const trades = await kraken.getTrades({ lastTxId })
   const txIds = Object.keys(trades)

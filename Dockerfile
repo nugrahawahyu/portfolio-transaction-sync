@@ -15,6 +15,8 @@ ENV CHROMIUM_PATH google-chrome-stable
 WORKDIR /app
 RUN mkdir /app/node_modules
 
+RUN chown -Rh $user:$user /app
+
 # configure puppeteer user
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
   && mkdir -p /home/pptruser/Downloads \

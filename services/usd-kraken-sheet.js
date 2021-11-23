@@ -25,9 +25,9 @@ module.exports = class MinaSheet {
 
     newBuyEntryDateCell.note = txId
     newBuyEntryDateCell.value = new Date(time).toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })
-    newBuyEntryAmountCell.value = amount
-    newBuyEntryPriceCell.value = price
-    newBuyEntryFeeCell.value = fee
+    newBuyEntryAmountCell.value = Number(amount)
+    newBuyEntryPriceCell.value = Number(price)
+    newBuyEntryFeeCell.value = Number(fee)
 
     await Promise.all([
       newBuyEntryDateCell.save(),

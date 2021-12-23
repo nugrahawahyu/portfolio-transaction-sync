@@ -1,9 +1,9 @@
 const updateLoggedTxIds = require('../lib/update-logged-tx-ids')
 const loggedTxIds = require('../logged-tx-ids.json')
-const SheetService = require('../services/mina-sheet')
+const SheetService = require('../services/doge-sheet')
 const UsdKrakenSheet = require('../services/usd-kraken-sheet')
 
-const sheetName = 'MINA'
+const sheetName = 'DOGE'
 
 module.exports = {
   async buy (config, trade, txId) {
@@ -25,7 +25,7 @@ module.exports = {
         txId
       )
   
-      // buy mina
+      // buy doge
       const sheetService = new SheetService(config.docId, config.clientEmail, config.privateKey)
       await sheetService.insertBuyHistory(
         trade.vol,
@@ -56,7 +56,7 @@ module.exports = {
     }))
 
     if (!loggedTxIds[sheetName][txId]) {
-      // sell mina
+      // sell doge
       const sheetService = new SheetService(config.docId, config.clientEmail, config.privateKey)
       await sheetService.insertSellHistory(
         trade.vol,

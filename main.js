@@ -1,5 +1,6 @@
 require('dotenv').config()
 const fs = require('fs')
+const path = require('path')
 const buySellActions = require('./buy-sell-actions')
 const Trade = require('./models/trade')
 const pairSheetMap = require('./pair-sheet-map.json')
@@ -31,7 +32,7 @@ const config = {
 
 
 function updateLastTxId (txId) {
-  fs.writeFileSync('./last-tx-id.json', JSON.stringify({
+  fs.writeFileSync(path.join(process.cwd(), 'last-tx-id.json'), JSON.stringify({
     "tx-id": txId
   }, null, 2))
 }

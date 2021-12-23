@@ -1,5 +1,7 @@
 const mina = require('./mina')
+const doge = require('./doge')
 
 module.exports = {
-  "MINA": mina
+  "MINA": mina,
+  "DOGE": doge,
 }

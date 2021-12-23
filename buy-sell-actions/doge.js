@@ -1,5 +1,4 @@
 const updateLoggedTxIds = require('../lib/update-logged-tx-ids')
-const loggedTxIds = require('../logged-tx-ids.json')
 const SheetService = require('../services/doge-sheet')
 const UsdKrakenSheet = require('../services/usd-kraken-sheet')
 
@@ -7,6 +6,8 @@ const sheetName = 'DOGE'
 
 module.exports = {
   async buy (config, trade, txId) {
+    const loggedTxIds = require('../logged-tx-ids.json')
+
     console.log(JSON.stringify({
       timestamp: Date.now(),
       action: 'buy',
@@ -48,6 +49,8 @@ module.exports = {
   },
 
   async sell (config, trade, txId) {
+    const loggedTxIds = require('../logged-tx-ids.json')
+
     console.log(JSON.stringify({
       timestamp: Date.now(),
       action: 'sell',
